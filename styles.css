@@ -322,44 +322,74 @@ body {
     border-color: var(--accent-light);
 }
 
+/* Owner - Red */
 .server-card.owner {
-    border-color: #10b981;
+    border-color: #ef4444;
 }
 
 .server-card.owner:hover {
-    box-shadow: var(--shadow-lg), 0 0 20px rgba(16, 185, 129, 0.3);
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(239, 68, 68, 0.3);
+    border-color: #ff6b6b;
 }
 
+.server-card.owner::before {
+    background: radial-gradient(circle, #ff6b6b 0%, transparent 70%);
+}
+
+/* Developer - Purple */
 .server-card.developer {
-    border-color: #3b82f6;
+    border-color: #8b5cf6;
 }
 
 .server-card.developer:hover {
-    box-shadow: var(--shadow-lg), 0 0 20px rgba(59, 130, 246, 0.3);
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(139, 92, 246, 0.3);
+    border-color: #a78bfa;
 }
 
+.server-card.developer::before {
+    background: radial-gradient(circle, #a78bfa 0%, transparent 70%);
+}
+
+/* Admin - Orange */
 .server-card.admin {
     border-color: #f59e0b;
 }
 
 .server-card.admin:hover {
     box-shadow: var(--shadow-lg), 0 0 20px rgba(245, 158, 11, 0.3);
+    border-color: #fbbf24;
 }
 
+.server-card.admin::before {
+    background: radial-gradient(circle, #fbbf24 0%, transparent 70%);
+}
+
+/* Jr Mod - Green */
 .server-card.moderator {
-    border-color: #8b5cf6;
+    border-color: #10b981;
 }
 
 .server-card.moderator:hover {
-    box-shadow: var(--shadow-lg), 0 0 20px rgba(139, 92, 246, 0.3);
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(16, 185, 129, 0.3);
+    border-color: #34d399;
 }
 
+.server-card.moderator::before {
+    background: radial-gradient(circle, #34d399 0%, transparent 70%);
+}
+
+/* Helper - Cyan */
 .server-card.helper {
     border-color: #06b6d4;
 }
 
 .server-card.helper:hover {
     box-shadow: var(--shadow-lg), 0 0 20px rgba(6, 182, 212, 0.3);
+    border-color: #22d3ee;
+}
+
+.server-card.helper::before {
+    background: radial-gradient(circle, #22d3ee 0%, transparent 70%);
 }
 
 .role-badge {
@@ -373,33 +403,38 @@ body {
     letter-spacing: 0.5px;
 }
 
+/* Owner Badge - Red */
 .server-card.owner .role-badge {
-    background: rgba(16, 185, 129, 0.2);
-    color: #10b981;
-    border: 1px solid #10b981;
+    background: rgba(239, 68, 68, 0.2);
+    color: #ff6b6b;
+    border: 1px solid #ef4444;
 }
 
+/* Developer Badge - Purple */
 .server-card.developer .role-badge {
-    background: rgba(59, 130, 246, 0.2);
-    color: #3b82f6;
-    border: 1px solid #3b82f6;
-}
-
-.server-card.admin .role-badge {
-    background: rgba(245, 158, 11, 0.2);
-    color: #f59e0b;
-    border: 1px solid #f59e0b;
-}
-
-.server-card.moderator .role-badge {
     background: rgba(139, 92, 246, 0.2);
-    color: #8b5cf6;
+    color: #a78bfa;
     border: 1px solid #8b5cf6;
 }
 
+/* Admin Badge - Orange */
+.server-card.admin .role-badge {
+    background: rgba(245, 158, 11, 0.2);
+    color: #fbbf24;
+    border: 1px solid #f59e0b;
+}
+
+/* Jr Mod Badge - Green */
+.server-card.moderator .role-badge {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid #10b981;
+}
+
+/* Helper Badge - Cyan */
 .server-card.helper .role-badge {
     background: rgba(6, 182, 212, 0.2);
-    color: #06b6d4;
+    color: #22d3ee;
     border: 1px solid #06b6d4;
 }
 
@@ -415,68 +450,6 @@ body {
     color: #cbd5e1;
     position: relative;
     z-index: 1;
-}
-
-/* Experience Section */
-.experience {
-    padding: 4rem 0;
-    background: rgba(124, 58, 237, 0.05);
-    border-bottom: 2px solid var(--primary-color);
-}
-
-.experience h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    text-align: center;
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.skill-category {
-    background: rgba(30, 41, 59, 0.7);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: 15px;
-    border: 1px solid var(--primary-color);
-}
-
-.skill-category h3 {
-    color: var(--accent-light);
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-}
-
-.skills-list {
-    list-style: none;
-}
-
-.skills-list li {
-    color: #cbd5e1;
-    padding: 0.75rem 0 0.75rem 1.5rem;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.skills-list li:before {
-    content: "★";
-    position: absolute;
-    left: 0;
-    color: var(--accent-light);
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.skills-list li:hover {
-    color: var(--white);
-    transform: translateX(5px);
 }
 
 /* Contact Section */
@@ -554,9 +527,8 @@ footer p {
     }
 
     .about h2,
-    .experience h2,
-    .contact h2,
-    .servers h2 {
+    .servers h2,
+    .contact h2 {
         font-size: 2rem;
     }
 
@@ -565,8 +537,7 @@ footer p {
         font-size: 0.9rem;
     }
 
-    .servers-grid,
-    .skills-container {
+    .servers-grid {
         grid-template-columns: 1fr;
     }
 
