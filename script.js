@@ -115,7 +115,7 @@
 
     const typingElement = document.getElementById('typingText');
     if (typingElement) {
-        const words = ['Kajtexio', 'Server Specialist', 'Infrastructure Expert', 'DevOps Engineer'];
+        const words = ['Kajtexio', 'Server Developer', 'Infrastructure Expert', 'DevOps Engineer'];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
