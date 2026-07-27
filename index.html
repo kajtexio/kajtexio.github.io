@@ -1,135 +1,378 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kajtexio - Server Specialist</title>
+    <title>Kajtexio | Server Infrastructure Specialist</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Stars Background -->
-    <div class="stars-container">
-        <div class="stars"></div>
-    </div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
+    <canvas id="particleCanvas"></canvas>
+
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="logo">✨ Kajtexio</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#servers">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <a href="#" class="logo">
+                <span class="logo-icon">⬡</span>
+                <span class="logo-text">Kajtexio</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#stats" class="nav-link">Stats</a></li>
+                <li><a href="#contact" class="nav-link contact-nav-link">Contact</a></li>
             </ul>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
+    <section class="hero" id="hero">
+        <div class="hero-overlay"></div>
         <div class="container hero-content">
-            <div class="hero-text">
-                <h1 class="glitch" data-text="Kajtexio">Kajtexio</h1>
-                <p class="subtitle">Server & Infrastructure Specialist</p>
-                <p class="description">3+ years of professional server management expertise</p>
-                <a href="#servers" class="cta-button">Explore My Experience</a>
+            <div class="hero-badge">Server Infrastructure Specialist</div>
+            <h1 class="hero-title">
+                <span class="typing-text" id="typingText"></span>
+                <span class="cursor">|</span>
+            </h1>
+            <p class="hero-subtitle" id="heroSubtitle">3+ years of professional server management & infrastructure expertise</p>
+            <div class="hero-actions">
+                <a href="#experience" class="btn btn-primary">
+                    View Experience
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
-        </div>
-    </header>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>Passionate server and infrastructure specialist with extensive experience managing diverse server environments. Owner and developer across multiple gaming and hosting platforms, dedicated to delivering reliable, secure, and optimized server solutions.</p>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="servers" class="servers">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="servers-grid">
-                
-                <div class="server-card owner">
-                    <div class="role-badge">Owner</div>
-                    <h3>swift.icsv.pl</h3>
-                    <p>Polish ElytraBox Server</p>
-                </div>
-
-                <div class="server-card owner">
-                    <div class="role-badge">Owner</div>
-                    <h3>SwiftOG.icsv.pl</h3>
-                    <p>Polish ElytraBox Server</p>
-                </div>
-
-                <div class="server-card owner">
-                    <div class="role-badge">Owner</div>
-                    <h3>Spicybox.pl</h3>
-                    <p>Polish ElytraBox Server</p>
-                </div>
-
-                <div class="server-card developer">
-                    <div class="role-badge">Developer</div>
-                    <h3>HydroMC.pl</h3>
-                    <p>Polish RapyPractice Server</p>
-                </div>
-
-                <div class="server-card developer">
-                    <div class="role-badge">Developer</div>
-                    <h3>play.AtomNetwork.org</h3>
-                    <p>EU ElytraBox Server</p>
-                </div>
-
-                <div class="server-card developer">
-                    <div class="role-badge">Developer</div>
-                    <h3>dripleaf.org</h3>
-                    <p>EU ElytraBox Server</p>
-                </div>
-
-                <div class="server-card developer">
-                    <div class="role-badge">Developer</div>
-                    <h3>buzzbox.pl</h3>
-                    <p>Polish Elytra/BoxPvP Server</p>
-                </div>
-
-                <div class="server-card admin">
-                    <div class="role-badge">Admin</div>
-                    <h3>Boxhunt.pl</h3>
-                    <p>Polish ElytraBox Server</p>
-                </div>
-
-                <div class="server-card moderator">
-                    <div class="role-badge">Jr Mod</div>
-                    <h3>Polishbox.pl</h3>
-                    <p>Polish ElytraBox Server</p>
-                </div>
-
-                <div class="server-card helper">
-                    <div class="role-badge">Helper</div>
-                    <h3>vejpbox.eu</h3>
-                    <p>EU ElytraBox Server</p>
-                </div>
-
+            <div class="hero-scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-dot"></div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section class="about" id="about">
         <div class="container">
-            <h2>Get In Touch</h2>
-            <p>Interested in discussing server infrastructure or collaboration opportunities?</p>
-            <div class="contact-links">
-                <a href="https://github.com/kajtexio" class="contact-button">GitHub</a>
-                <a href="mailto:kajtexooo@gmail.com" class="contact-button">Email</a>
+            <div class="section-header">
+                <span class="section-tag">About</span>
+                <h2 class="section-title">The Developer <span class="gradient-text">Behind the Servers</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-description">
+                        Passionate server and infrastructure specialist with extensive experience 
+                        managing diverse server environments. Owner and developer across multiple 
+                        gaming and hosting platforms, dedicated to delivering reliable, secure, 
+                        and optimized server solutions.
+                    </p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🛡️</span>
+                            <div>
+                                <strong>Security First</strong>
+                                <p>Enterprise-grade security protocols</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">⚡</span>
+                            <div>
+                                <strong>High Performance</strong>
+                                <p>Optimized for max throughput</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🌐</span>
+                            <div>
+                                <strong>24/7 Uptime</strong>
+                                <p>Reliable infrastructure management</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-code">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="code-title">kajtexio.config.js</span>
+                        </div>
+                        <div class="code-body">
+                            <pre><code><span class="keyword">const</span> <span class="variable">kajtexio</span> = {
+    <span class="property">role</span>: <span class="string">"Server Specialist"</span>,
+    <span class="property">experience</span>: <span class="number">3</span>+ <span class="string">"years"</span>,
+    <span class="property">skills</span>: [
+        <span class="string">"Linux Administration"</span>,
+        <span class="string">"Cloud Infrastructure"</span>,
+        <span class="string">"Network Security"</span>,
+        <span class="string">"Database Management"</span>,
+        <span class="string">"DevOps & CI/CD"</span>
+    ],
+    <span class="property">status</span>: <span class="string">"🟢 Online"</span>
+};</code></pre>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
+    <section class="experience" id="experience">
         <div class="container">
-            <p>&copy; 2026 Kajtexio. All rights reserved.</p>
+            <div class="section-header">
+                <span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Server <span class="gradient-text">Experience</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="experience-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="owner">Owner</button>
+                <button class="filter-btn" data-filter="developer">Developer</button>
+                <button class="filter-btn" data-filter="admin">Admin</button>
+                <button class="filter-btn" data-filter="moderator">Jr Mod</button>
+                <button class="filter-btn" data-filter="helper">Helper</button>
+            </div>
+            <div class="servers-grid" id="serversGrid">
+
+                <div class="server-card" data-role="owner">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-role owner-role">
+                            <span class="role-dot"></span> Owner
+                        </div>
+                        <h3 class="card-title">swift.icsv.pl</h3>
+                        <p class="card-desc">Polish ElytraBox Server</p>
+                        <div class="card-tech">
+                            <span>Minecraft</span>
+                            <span>ElytraBox</span>
+                            <span>Poland</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card" data-role="owner">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-role owner-role">
+                            <span class="role-dot"></span> Owner
+                        </div>
+                        <h3 class="card-title">SwiftOG.icsv.pl</h3>
+                        <p class="card-desc">Polish ElytraBox Server</p>
+                        <div class="card-tech">
+                            <span>Minecraft</span>
+                            <span>ElytraBox</span>
+                            <span>Poland</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card" data-role="owner">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-role owner-role">
+                            <span class="role-dot"></span> Owner
+                        </div>
+                        <h3 class="card-title">Spicybox.pl</h3>
+                        <p class="card-desc">Polish ElytraBox Server</p>
+                        <div class="card-tech">
+                            <span>Minecraft</span>
+                            <span>ElytraBox</span>
+                            <span>Poland</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card" data-role="developer">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-role dev-role">
+                            <span class="role-dot"></span> Developer
+                        </div>
+                        <h3 class="card-title">HydroMC.pl</h3>
+                        <p class="card-desc">Polish RapyPractice Server</p>
+                        <div class="card-tech">
+                            <span>Minecraft</span>
+                            <span>Practice</span>
+                            <span>Poland</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card" data-role="developer">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-role dev-role">
+                            <span class="role-dot"></span> Developer
+                        </div>
+                        <h3 class="card-title">play.AtomNetwork.org</h3>
+                        <p class="card-desc">EU ElytraBox Server</p>
+                        <div class="card-tech">
+                            <span>Minecraft</span>
+                            <span>ElytraBox</span>
+                            <span>EU</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card" data-role="developer">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-role dev-role">
+                            <span class="role-dot"></span> Developer
+                        </div>
+                        <h3 class="card-title">dripleaf.org</h3>
+                        <p class="card-desc">EU ElytraBox Server</p>
+                        <div class="card-tech">
+                            <span>Minecraft</span>
+                            <span>ElytraBox</span>
+                            <span>EU</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card" data-role="developer">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-role dev-role">
+                            <span class="role-dot"></span> Developer
+                        </div>
+                        <h3 class="card-title">buzzbox.pl</h3>
+                        <p class="card-desc">Polish Elytra/BoxPvP Server</p>
+                        <div class="card-tech">
+                            <span>Minecraft</span>
+                            <span>BoxPvP</span>
+                            <span>Poland</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card" data-role="admin">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-role admin-role">
+                            <span class="role-dot"></span> Admin
+                        </div>
+                        <h3 class="card-title">Boxhunt.pl</h3>
+                        <p class="card-desc">Polish ElytraBox Server</p>
+                        <div class="card-tech">
+                            <span>Minecraft</span>
+                            <span>ElytraBox</span>
+                            <span>Poland</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card" data-role="moderator">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-role mod-role">
+                            <span class="role-dot"></span> Jr Mod
+                        </div>
+                        <h3 class="card-title">Polishbox.pl</h3>
+                        <p class="card-desc">Polish ElytraBox Server</p>
+                        <div class="card-tech">
+                            <span>Minecraft</span>
+                            <span>ElytraBox</span>
+                            <span>Poland</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-card" data-role="helper">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-role helper-role">
+                            <span class="role-dot"></span> Helper
+                        </div>
+                        <h3 class="card-title">vejpbox.eu</h3>
+                        <p class="card-desc">EU ElytraBox Server</p>
+                        <div class="card-tech">
+                            <span>Minecraft</span>
+                            <span>ElytraBox</span>
+                            <span>EU</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Metrics</span>
+                <h2 class="section-title">By The <span class="gradient-text">Numbers</span></h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">🚀</div>
+                    <div class="stat-number" data-target="10">0</div>
+                    <p class="stat-label">Servers Managed</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-number" data-target="3">0</div>
+                    <p class="stat-label">Years Experience</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🛡️</div>
+                    <div class="stat-number" data-target="100">0</div>
+                    <p class="stat-label">Uptime %</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🌍</div>
+                    <div class="stat-number" data-target="3">0</div>
+                    <p class="stat-label">Countries Reached</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-card">
+                <div class="section-header">
+                    <span class="section-tag">Contact</span>
+                    <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+                    <div class="section-divider"></div>
+                </div>
+                <p class="contact-text">
+                    Interested in discussing server infrastructure or collaboration opportunities? 
+                    Let's build something amazing together.
+                </p>
+                <div class="contact-links">
+                    <a href="https://github.com/kajtexio" class="contact-btn github-btn" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                    <a href="mailto:kajtexooo@gmail.com" class="contact-btn email-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+                        Email Me
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">⬡ Kajtexio</span>
+                    <p>Server Infrastructure Specialist</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <p class="footer-copy">&copy; 2026 Kajtexio. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
