@@ -817,15 +817,23 @@ section {
     transform: translateY(-2px);
 }
 
-.email-btn {
-    background: var(--accent-gradient);
+.discord-btn {
+    background: #5865F2;
     color: #fff;
     border-color: transparent;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
 }
 
-.email-btn:hover {
+.discord-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(168, 85, 247, 0.4);
+    box-shadow: 0 8px 30px rgba(88, 101, 242, 0.4);
+}
+
+.discord-btn.copied {
+    background: #22c55e;
 }
 
 /* ==================== FOOTER ==================== */
