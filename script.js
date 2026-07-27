@@ -313,26 +313,36 @@
         discordBtn.addEventListener('click', async () => {
             try {
                 await navigator.clipboard.writeText('vg4u');
-                const originalText = discordBtn.innerHTML;
-                discordBtn.innerHTML = `
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                    Copied!`;
-                discordBtn.classList.add('copied');
-                setTimeout(() => {
-                    discordBtn.innerHTML = originalText;
-                    discordBtn.classList.remove('copied');
-                }, 2000);
             } catch {
-                // fallback
                 const ta = document.createElement('textarea');
                 ta.value = 'vg4u';
                 document.body.appendChild(ta);
                 ta.select();
                 document.execCommand('copy');
                 ta.remove();
-                alert('Copied: vg4u');
             }
+            showToast('Discord copied: vg4u');
         });
+    }
+
+    function showToast(msg) {
+        const existing = document.querySelector('.toast-notification');
+        if (existing) existing.remove();
+
+        const toast = document.createElement('div');
+        toast.className = 'toast-notification';
+        toast.innerHTML = `
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>${msg}</span>
+        `;
+        document.body.appendChild(toast);
+
+        requestAnimationFrame(() => toast.classList.add('show'));
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 400);
+        }, 2200);
     }
 
     // ==================== SMOOTH ANCHOR SCROLL ====================
